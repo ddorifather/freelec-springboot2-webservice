@@ -25,4 +25,25 @@ System.out.println을 통해 눈으로 검증하지 않고 테스트 코드로 �
 '언제 어디서나 같은 환경에서 스프링 부트를 배포할수 있기 때문이다.'
 
 
+## 프로젝트에 Spring Data Jpa 적용하기
+서로 지향하는 바가 다른 2개 영역(객체지향 프로그래밍 언어와 관계형 데이터베이스)을 중간에서 패러다임 일치 시켜주기 위한 기술
+
+---
+@NoArgsConstructor   
+롬복의 어노테이션으로 기본생성자를 자동으로 추가해준다.   
+@Builder   
+해당 클래스의 빌더 패턴 클래스를 생성해준다. 생성자 상단에 선언 시 생성자에 포함된 필드만 빌더에 포함   
+---
+@Entity   
+테이블과 링크될 클래스   
+@Id   
+해당 테이블의 PK   
+@GeneratedValue   
+PK의 생성 규칙을 나타낸다. (GenerationType.IDENTITY 옵션 추가시 auto_increment)
+@Column   
+테이블의 칼럼을 나타내며 굳이 선언하지 않더라도 해당 클래스의 필드는 모두 컬럼이 된다.   
+---
+`Entity 클래스에서는 절대 Setter메소드를 만들지 않는다.`   
+
+@Repository 추가할 필요 없으며 Entity 클래스와 기본 Entity Repository는 함께 위치해야 한다.   
 
